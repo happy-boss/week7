@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>我的第一個網頁</title>
+    <style type="text/css">
+        body{
+        margin: 0px;
+        padding: 0px;
+    }
+        .content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: bold;
+	height: 300px;
+	background-color: #00ffff;
+	font-size: 40px;
+    margin: 0px;
+    }
+    .main{
+        text-align:center
+    }
+    </style>
+</head>
+<body>
+    <div class="content">歡迎光臨，請輸入帳號密碼</div>
+    <div class="main">
+        <div>註冊系統</div>
+        <form action="/signup" method="POST">
+            姓名<input type="text" name="name"/><br>
+            帳號<input type="text" name="username" /><br>
+            密碼<input type="password" name="password" /><br>
+            <button>註冊</button>     
+        </form>
+        <div>登入系統</div>
+        <form action="/signin" method="POST">
+            帳號<input type="text" name="username" /><br>
+            密碼<input type="password" name="password" /><br>
+            <button>登入</button>     
+        </form>
+
+        
+    </div>
+</body>    
+</html>

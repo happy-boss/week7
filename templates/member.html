@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>我的第一個網頁</title>
+    <style type="text/css">
+        body{
+        margin: 0px;
+        padding: 0px;
+    }
+        .content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: bold;
+	height: 300px;
+	background-color: #00ffff;
+	font-size: 40px;
+    margin: 0px;
+    }
+    .main{
+        text-align:center
+    }
+    .search{
+        font-weight:bold
+    }
+    </style>
+    <script type="text/javascript">
+    function getdata(){
+        var req=new XMLHttpRequest();
+        const inputusername= document.getElementById('username').value;
+        
+        //這裡忘記全域變數的觀念，上面的東西侷限在那個function裡面導致下面東西不會吃到
+        req.open("get","http://127.0.0.1:3000/api/users?username="+inputusername);
+        req.onload=function(){
+            alert(this.responseText);
+            console.log(this.responseText);
+            //這裡告訴我那個網址加上inputusername有沒有搞出東西來
+            document.getElementById('change').innerHTML=inputusername;
+        };
+        req.send();//送出連線
+        
+        
+    }
+    </script>
+</head>
+<body>
+    <div class="content">歡迎光臨，這是會員頁</div>
+    <div class="main">
+        {{name}},恭喜您登入成功<br>
+        <a href="/signout">
+            <button>登出系統</button>
+        </a>
+        <div class="search">查詢會員姓名</div>
+        
+        <input type="text" name="username" id="username"/>
+        <button onclick="getdata()">查詢</button>
+        <p id="change"></p>
+    </div>
+</body>    
+</html>
+
+
+
