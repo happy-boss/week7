@@ -11,7 +11,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 mydb=mysql.connector.connect(
     host="localhost",
     user="root",
-    password="2021",
+    password="",
     database="mydatabase",
     buffered = True
 )
