@@ -27,16 +27,12 @@
     </style>
     <script type="text/javascript">
     function getdata(){
-        var req=new XMLHttpRequest();
-        const inputusername= document.getElementById('username').value;
-        
-        //這裡忘記全域變數的觀念，上面的東西侷限在那個function裡面導致下面東西不會吃到
-        req.open("get","http://127.0.0.1:3000/api/users?username="+inputusername);
-        req.onload=function(){
-            alert(this.responseText);
+        alert(this.responseText);
             console.log(this.responseText);
+            //要將得到的資料改成json格式才有辦法做不然資料找不到對應的value
+            const wantdata=JSON.parse(this.responseText);
             //這裡告訴我那個網址加上inputusername有沒有搞出東西來
-            document.getElementById('change').innerHTML=inputusername;
+            document.getElementById('change').textContent=(wantdata.data.name+"("+inputusername+")");
         };
         req.send();//送出連線
         
